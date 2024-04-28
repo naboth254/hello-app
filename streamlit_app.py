@@ -1,3 +1,6 @@
+To implement real-time synchronization of the clock, we'll use JavaScript to fetch the current time from the client's browser and update it dynamically. Here's how you can modify the Streamlit app to achieve this:
+
+```python
 import streamlit as st
 import requests
 from datetime import datetime
@@ -51,7 +54,24 @@ def main():
     st.write('Quote of the day:')
     st.write(quote)
 
-    st.write('Current date and time:', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    # Embed JavaScript to update the clock in real-time
+    st.write(
+        """
+        <script>
+            setInterval(() => {
+                const now = new Date();
+                const timeElement = document.getElementById('current-time');
+                timeElement.innerText = `Current date and time: ${now.toLocaleString()}`;
+            }, 1000);
+        </script>
+        """
+    )
+
+    # Display initial clock
+    st.write(f"Current date and time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 if __name__ == '__main__':
     main()
+```
+
+With this modification, the clock will now update in real-time on the client's browser. The JavaScript code embedded in the Streamlit app fetches the current time every second and updates the clock dynamically.
