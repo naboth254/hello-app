@@ -52,7 +52,7 @@ def main():
     st.write(quote)
 
     # Embed JavaScript to load the clock update script
-    st.write("<script src='update_clock.js'></script>")
+    st.write("<script src='update_clock.js'></script>", unsafe_allow_html=True)
 
     # Display initial clock
     st.write(f"<div id='current-time'>Current date and time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</div>", unsafe_allow_html=True)
