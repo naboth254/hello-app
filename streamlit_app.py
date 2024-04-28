@@ -51,21 +51,11 @@ def main():
     st.write('Quote of the day:')
     st.write(quote)
 
-    # Embed JavaScript to update the clock in real-time
-    st.write(
-        """
-        <script>
-            setInterval(() => {
-                const now = new Date();
-                const timeElement = document.getElementById('current-time');
-                timeElement.innerText = `Current date and time: ${now.toLocaleString()}`;
-            }, 1000);
-        </script>
-        """
-    )
+    # Embed JavaScript to load the clock update script
+    st.write("<script src='update_clock.js'></script>")
 
     # Display initial clock
-    st.write(f"Current date and time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    st.write(f"<div id='current-time'>Current date and time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</div>", unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
