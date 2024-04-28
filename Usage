@@ -1,1 +1,2 @@
 cd hello-app
+streamlit run hello_app.py
