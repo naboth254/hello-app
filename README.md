@@ -21,4 +21,4 @@ The Hello App is a Streamlit-based web application that greets users with person
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone naboth254/hello-app
