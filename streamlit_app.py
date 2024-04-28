@@ -2,17 +2,15 @@ import streamlit as st
 import requests
 from datetime import datetime
 
-def get_time_of_day():
+def get_greeting(language):
     current_hour = datetime.now().hour
     if 5 <= current_hour < 12:
-        return 'morning'
+        time_of_day = 'morning'
     elif 12 <= current_hour < 18:
-        return 'afternoon'
+        time_of_day = 'afternoon'
     else:
-        return 'evening'
-
-def get_greeting(language):
-    time_of_day = get_time_of_day()
+        time_of_day = 'evening'
+    
     greetings = {
         'english': {
             'morning': 'Good morning',
