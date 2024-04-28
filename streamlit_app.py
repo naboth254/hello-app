@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from datetime import datetime
 
 def get_time_of_day():
     current_hour = datetime.now().hour
@@ -48,8 +49,8 @@ def main():
         else:
             st.write(f'{greeting}!')
 
-    st.write('Quote of the day:')
     quote = get_quote_of_the_day()
+    st.write('Quote of the day:')
     st.write(quote)
 
     st.write('Current date and time:', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
